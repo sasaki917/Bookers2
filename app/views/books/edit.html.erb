@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+<h2>Editing Book</h2>
+<%= render 'books/error', book: @book %>
+	<%= form_with(model: @book, url: book_path(@book),method: :put, local: true) do |f| %>
+
+		<%= f.label :title %>
+		<%= f.text_field :title, class: "btn-block" %>
+		<%= f.label "Opinion" %>
+		<%= f.text_area :body, class: "col-xs-12 book_body" %>
+		<%= f.submit 'Update Book', class: "btn btn-primary col-xs-12" %>
+	<% end %>
+
+<%= link_to "Show", book_path(@book) %> |
+<%= link_to "Back", books_path %>
+</div>
+</div>

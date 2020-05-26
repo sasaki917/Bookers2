@@ -1,0 +1,23 @@
+<div class= "body", style= "margin-top: 50px;">
+<h2>User info</h2>
+
+<% if @user.errors.any? %>
+  <div class="alert alert-warning">
+  	<h2><%= @user.errors.count %>errors prohibited this book from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<!-- <table> -->
+  <%= form_for(@user, url: "/users/#{@user.id}") do |user| %>
+	<tr><th>Name</th><td><%= user.text_field :name %></td></tr>
+	<tr><th>Image</th><td><%= user.attachment_field :profile_image %></td></tr>
+	<tr><th>Introduction</th><td><%= user.text_area :introduction %></td></tr>
+	<tr><td><%= user.submit 'Update User' %></td></tr>
+  <% end %>
+<!-- </table> -->
+</div>
